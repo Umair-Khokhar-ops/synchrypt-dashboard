@@ -1,9 +1,15 @@
+import { useEffect } from "react";
+import { Button } from "./components/ui/button";
+
 export default function App() {
+  useEffect(() => {
+    const apiUrl = process.env.REACT_APP_API_URL;
+    console.log("API URL:", apiUrl);
+  }, []);
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-gray-600">
-      <h1 className="text-5xl font-bold text-white drop-shadow-lg">
-        🚀 Tailwind CSS is Working!
-      </h1>
+    <div>
+      <Button>Hello World</Button>
     </div>
   );
 }
