@@ -1,0 +1,6 @@
+# Env files
+.env.development
+.env.production
+
+# But keep the sample
+!.env.sample
