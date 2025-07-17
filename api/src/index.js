@@ -1,10 +1,17 @@
 // src/index.js
 const express = require('express');
-require('dotenv').config();
+const { port, databaseUrl } = require('./config');   // ← pulls in .env.* based on NODE_ENV
 
 const app = express();
-const PORT = process.env.PORT || 3000;
 
-app.get('/', (req, res) => res.send('API server is running'));
+app.get('/', (req, res) => {
+  res.send(
+    `Server running on port ${port}. Database URL: ${databaseUrl}`
+  );
+});
 
-app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
+app.listen(port, () => {
+  console.log(
+    `Server listening on port ${port} (NODE_ENV=${process.env.NODE_ENV})`
+  );
+});
